@@ -43,4 +43,10 @@ public class CalculatorTest {
       		throw ex;
     	}
     }
+
+    @Test
+    public void testLargeNumbers() {
+    	assertEquals(2, Calculator.add("1001,2"));
+    }
+
 }

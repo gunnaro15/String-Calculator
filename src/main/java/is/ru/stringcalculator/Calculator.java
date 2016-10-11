@@ -22,7 +22,8 @@ public class Calculator {
 
 		int total = 0;
 		for(String number : numbers) {
-			total += Integer.parseInt(number);
+			int num = Integer.parseInt(number);
+			if(num <= 1000) total += num;
 		}
 		return total;
 	}
