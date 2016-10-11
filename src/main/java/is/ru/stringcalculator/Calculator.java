@@ -9,7 +9,7 @@ public class Calculator {
 
 		String del = "[,\n]";
 		if(text.startsWith("//")) {
-			del = text.substring(2, 3);
+			del = text.split("\n")[0].substring(2);
 			text = text.split("\n")[1];
 		}
 
