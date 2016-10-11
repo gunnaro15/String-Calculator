@@ -7,20 +7,23 @@ public class Calculator {
 			return 0;
 		}
 
-		else if(text.contains(",")) {
-			int total = 0;
-			String[] numbers = text.split("[,\n]");
+		String[] numbers = text.split("[,\n]");
+
+		if(text.contains("-")) {
+			String neg = "Negatives not allowed: ";
 			for(String number : numbers) {
-				total += toInt(number);
+				if(number.contains("-")) {
+					neg += (number + ",");
+				}
 			}
-			return total;
+			neg = neg.substring(0, neg.length()-1);
+			throw new IllegalArgumentException(neg);
 		}
 
-		else return toInt(text);
+		int total = 0;
+		for(String number : numbers) {
+			total += Integer.parseInt(number);
+		}
+		return total;
 	}
-
-	private static int toInt(String number) {
-		return Integer.parseInt(number);
-	}
-
 }

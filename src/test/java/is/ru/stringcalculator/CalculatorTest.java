@@ -21,14 +21,26 @@ public class CalculatorTest {
 	}
 
 	@Test
-    public void testMultipleNumbers(){
+    public void testMultipleNumbers() {
     	assertEquals(6, Calculator.add("1,2,3"));
     }
 
     @Test
-    public void testNewLine(){
+    public void testNewLine() {
     	assertEquals(6, Calculator.add("1\n2,3"));
     }
 
-    
+    @Test(expected=IllegalArgumentException.class)
+    public void testNegativeNumbers() {
+    	try
+   		{
+   			Calculator.add("2,-4,3,-5");
+   		}
+   		catch(IllegalArgumentException ex)
+   		{
+    		String message = "Negatives not allowed: -4,-5";
+      		assertEquals(message, ex.getMessage());
+      		throw ex;
+    	}
+    }
 }
