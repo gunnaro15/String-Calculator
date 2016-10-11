@@ -7,7 +7,13 @@ public class Calculator {
 			return 0;
 		}
 
-		String[] numbers = text.split("[,\n]");
+		String del = "[,\n]";
+		if(text.startsWith("//")) {
+			del = text.substring(2, 3);
+			text = text.split("\n")[1];
+		}
+
+		String[] numbers = text.split(del);
 
 		if(text.contains("-")) {
 			String neg = "Negatives not allowed: ";
