@@ -9,7 +9,7 @@ public class Calculator {
 
 		else if(text.contains(",")) {
 			int total = 0;
-			String[] numbers = text.split(",");
+			String[] numbers = text.split("[,\n]");
 			for(String number : numbers) {
 				total += toInt(number);
 			}
